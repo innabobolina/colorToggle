@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color Toggle</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        .pink {
+            background: hotpink;
+        }
+        
+        .hidden {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Color Toggle</h2>
+    <h3> Please click either button</h3>
+    <button>Click me</button>
+    <button class="second">Click me</button>
+    <p class="hidden">This button uses the easiest method, classList.toggle</p>
+    <p class="hidden" id="p2">This button uses a longer method (if/else conditions)</p>
+
+
+    <script>
+        let button = document.querySelector("button");
+        let p = document.querySelector("p");
+
+        let button2 = document.querySelector(".second");
+        let p2 = document.querySelector("#p2");
+
+        // Best method: element.classList.toggle('some-class')
+
+        button.addEventListener('click', () => {
+            document.body.classList.toggle("pink");
+            p.classList.toggle("hidden");
+            p2.classList.add("hidden")
+                // p2.style.display = "none"
+        })
+
+        // Method 2: isPurple = !isPurple
+
+        let isPurple = false;
+        button2.addEventListener('click', () => {
+            if (!isPurple) {
+                document.body.style.background = 'magenta';
+            } else {
+                document.body.style.background = 'white';
+            }
+            isPurple = !isPurple;
+            p2.classList.toggle("hidden");
+            p.classList.add("hidden")
+        })
+    </script>
+</body>
+
+</html>
